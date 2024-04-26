@@ -1,0 +1,651 @@
+Class:-
+-------------------------------------------------------
+1) class is key word
+2) Class name start with capital and every second word aslo shoud be a stat with capital letter
+3) A class is a set of objects which shares common characteristics/ behavior and common properties/ attributes.
+<access specifier> class class_name   
+{  
+// member variables   
+// class methods   
+}  
+
+4) class is fully implementated structure it contains fully implemented methods it means it contains only implemented methods there is no abstract methods
+ex:
+public void m1(); ---this abstact method thir is no abstract methods in clsss
+public void m1()
+{
+
+-----this is implemented method
+
+}
+5)A Class can contain:
+	Data member
+	Method
+	Constructor
+	
+6)for one class we can create 'n' of objects
+
+EX:-
+------
+
+public class CalculateNumbers{
+   int a;
+   int b;
+   
+   public CalculateNumbers(int x,int y)
+   {
+       this.a=x;
+       this.b=y;
+   }
+   public int add()
+   {
+       int c=a+b;
+       return c;
+   }
+public static void main(String[] args)
+  {
+   CalculateNumbers cal=new CalculateNumbers(3,5);
+   System.out.println("Addtion:-"+cal.add());
+   
+  }
+}
+
+Object:
+________________________
+
+1)Object is the instance of class that are created to use the attributes and methods of a class
+2)Every object will have 3 properties.
+   1)State: It is represented by attributes of an object. It also reflects the properties of an object.
+   2)Behavior: It is represented by the methods of an object.
+   3)Identity: It gives a unique name to an object and enables one object to interact with other objects.
+
+ex:-Dog
+
+Identity :- Name of the Dog
+State:- Age,color,Breed 
+Identity:- sleep,eat,sound
+
+
+Difference between Java Class and Objects:
+----------------------------------------------------
+   			class 				|		object
+							|	
+1.Class is the blueprint of an object. 				1.An object is an instance of the class.
+It is used to create objects.
+
+2.No memory is allocated when a class is declared.		2.Memory is allocated as soon as an object is created.
+
+3.A class is a group of similar objects.			3.An object is a real-world entity such as a book, car, etc.
+
+4.Class is a logical entity.					4.An object is a physical entity.
+
+5.A class can only be declared once.				5.Objects can be created many times as per requirement.
+
+
+Inheritance:
+_---------------------------------------------------------
+The process of acquiring members of one class to another class is known as inheritance.
+
+Why use inheritance in java?
+For Method Overriding (so runtime polymorphism can be achieved).
+For Code Reusability.
+
+The extends keyword is used for inheritance in Java
+
+Super Class/Parent Class: The class whose features are inherited is known as a superclass
+-------------------------
+
+Sub Class/Child Class: The class that inherits the other class is known as a subclass
+-----------------------
+Ex------( Single level inheritance)
+______________
+class Car
+{
+    String color="red";
+    double  price=22.6;
+    public void purchased()
+    {
+        System.out.println("successfully purchased");
+    }
+}
+class Car2 extends Car
+{
+    int weight=30;
+}
+public class Main{
+    public static void main(String[] args)
+{
+        Car2 c1=new Car2();
+        System.out.println("Color of the car:-"+c1.color);
+        System.out.println("Price of the car:- "+c1.price+"Lakh");
+        System.out.println("Weight of the car is:-"+c1.weight);
+        c1.purchased();
+        
+}
+    
+}
+ex-2:
+------------------
+class Car
+{
+    String color;
+    double  price;
+    public Car(String color , double price)
+    {
+        this.color=color;
+        this.price=price;
+    }
+ 
+}
+class Car2 extends Car
+{
+    int weight;
+    public Car2(String color , double price, int weight)
+    {
+        super(color,price);
+        this.weight=weight;
+    }
+    public void purchased()
+    {
+       
+        System.out.println("Color of the car:-"+color);
+        System.out.println("Price of the car:- "+price+"Lakh");
+        System.out.println("Weight of the car is:-"+weight);
+        System.out.println("successfully purchased");
+    }
+}
+public class Main{
+    public static void main(String[] args)
+{
+        Car2 c1=new Car2("Red",22.4,22);
+       
+        c1.purchased();
+        
+}
+    
+}
+
+
+
+
+Types of inheritance
+---------------------------------
+I. Single level inheritance
+II. Multilevel inheritance
+III. Hierarichal inheritance
+IV. Hybrid inheritance
+V. Multiple inheritance
+
+Multilevel inheritance
+---------------------------------------
+The process of deriving the members from super most class to super class, super class to sub class is known as multi level inheritance.
+
+ex-2:
+--------------------
+
+class Car
+{
+    String color;
+    double  price;
+    public Car(String color , double price)
+    {
+        this.color=color;
+        this.price=price;
+    }
+    public void purchased()
+    {
+        System.out.println("Color of the car:-"+color);
+        System.out.println("Price of the car:- "+price+"Lakh");
+       
+    }
+}
+class Car2 extends Car
+{
+    int weight;
+    public Car2(String color , double price, int weight)
+    {
+        super(color,price);
+        this.weight=weight;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("Weight of the car is:-"+weight);
+    }
+}
+class Car3 extends Car2
+{
+    double speed;
+    public Car3(String color , double price, int weight,double speed)
+    {
+        super(color,price,weight);
+        this.speed=speed;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("speed of the car is:-"+speed+"Km/h");
+       System.out.println("successfully purchased");
+    }
+    
+}
+public class Main{
+    public static void main(String[] args)
+{
+        Car3 c1=new Car3("Red",22.4,22,60.5);
+       
+        c1.purchased();
+        
+}
+    
+}
+
+without inheritance
+----------------------------------
+Composition:
+----------------------------------
+The process of creating one class reference variable in another class as Static Variable or Non Static variable is known as composition
+
+The composition relationship of two objects is possible when one object contains another object, and that object is fully dependent on it. The contained object should not exist without the existence of its parent object.
+
+class Car
+{
+    String color;
+    double  price;
+    public Car(String color , double price)
+    {
+        this.color=color;
+        this.price=price;
+    }
+}
+class Car2
+{
+    int weight;
+    Car car;
+    public Car2( int weight )
+    {
+        this.weight=weight;
+    }
+    public void call(String color, double price)
+    {
+        car=new Car(color,price);
+        
+    }
+    public void purchased()
+    {
+       System.out.println("Color of the car:-"+car.color);
+       System.out.println("Price of the car:- "+car.price+"Lakh");
+       System.out.println("Weight of the car is:-"+weight);
+       System.out.println("successfully purchased");
+    }
+}
+public class Main{
+    public static void main(String[] args)
+{
+        Car2 c1=new Car2(22);
+        c1.call("red",22.5);
+       
+        c1.purchased();
+        
+}
+    
+}
+
+without inheritance
+-----------------------------------------------------------
+interface Car {
+    String getColor();
+    double getPrice(); 
+
+    
+    default void displayColor() {
+        System.out.println("Color of the car: " + getColor());
+    }
+
+    default void displayPrice() {
+        System.out.println("Price of the car: " + getPrice() + " Lakh");
+    }
+}
+
+class Car2 implements Car {
+    private int weight;
+
+    public Car2(int weight) {
+        this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void purchased() {
+        System.out.println("Weight of the car is: " + getWeight());
+        System.out.println("Successfully purchased");
+    }
+
+   
+    @Override
+    public String getColor() {
+        return "Red"; 
+    }
+
+    @Override
+    public double getPrice() {
+        return 22.5;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Car2 c1 = new Car2(22);
+        c1.displayColor();
+        c1.displayPrice();
+        c1.purchased();
+
+
+     
+    }
+}
+
+Hierarchical Inheritance
+---------------------------------------
+The process of deriving the members from super class to multiple sub class is known as Hierarichal inheritance.
+
+
+class Car
+{
+    String color;
+    double  price;
+    public Car(String color , double price)
+    {
+        this.color=color;
+        this.price=price;
+    }
+    public void purchased()
+    {
+        System.out.println("Color of the car:-"+color);
+        System.out.println("Price of the car:- "+price+"Lakh");
+       
+    }
+}
+class Car2 extends Car
+{
+    int weight;
+    public Car2(String color , double price, int weight)
+    {
+        super(color,price);
+        this.weight=weight;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("Weight of the car is:-"+weight+"Kgs");
+    }
+}
+class Car3 extends Car
+{
+    double speed;
+    public Car3(String color , double price,double speed)
+    {
+        super(color,price);
+        this.speed=speed;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("speed of the car is:-"+speed+"Km/h");
+       System.out.println("successfully purchased");
+    }
+    
+}
+public class Main{
+    public static void main(String[] args)
+{
+        Car3 c1=new Car3("Red",22.4,60.5);
+       
+        c1.purchased();
+        
+        Car2 c2=new Car2("green",33.4,60);
+        c2.purchased();
+        
+}
+    
+}
+
+Hybrid inheritance:-
+------------------------------
+The combination of more than one type of inheritance is known as Hybrid inheritance
+
+
+
+class Car
+{
+    String color;
+    double  price;
+    public Car(String color , double price)
+    {
+        this.color=color;
+        this.price=price;
+    }
+    public void purchased()
+    {
+        System.out.println("Color of the car:-"+color);
+        System.out.println("Price of the car:- "+price+"Lakh");
+       
+    }
+}
+class Car2 extends Car
+{
+    int weight;
+    public Car2(String color , double price, int weight)
+    {
+        super(color,price);
+        this.weight=weight;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("Weight of the car is:-"+weight+"Kgs");
+    }
+}
+class Car3 extends Car2
+{
+    double speed;
+    public Car3(String color , double price,double speed,int weight)
+    {
+        super(color,price,weight);
+        this.speed=speed;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("speed of the car is:-"+speed+"Km/h");
+       System.out.println("successfully purchased");
+    }
+    
+}
+class Car4 extends Car2
+{
+    int seatcapacity;
+    public  Car4(String color , double price, int weight, int seatcapacity)
+    {
+        super(color ,price, weight);
+        this.seatcapacity=seatcapacity;
+    }
+    public void purchased()
+    {
+        super.purchased();
+        System.out.println("Car seatcapasity is:-"+seatcapacity+" members");
+    }
+}
+public class Main{
+    public static void main(String[] args)
+{
+        Car2 c1=new Car2("Red",22.4,60);
+       
+        c1.purchased();
+        
+        Car3 c2=new Car3("green",33.4,60.6,87);
+        c2.purchased();
+        
+        Car4 c3=new Car4("Blue",44.4,78,5);
+        c3.purchased();
+        
+}
+    
+}
+
+Multiple Inheritance
+-------------------------------
+
+Java does not support multiple inheritances with classes. In Java, we can achieve multiple inheritances only through Interfaces
+
+
+class Car
+{
+    String color;
+    double  price;
+    public Car(String color , double price)
+    {
+        this.color=color;
+        this.price=price;
+    }
+    public void purchased()
+    {
+        System.out.println("Color of the car:-"+color);
+        System.out.println("Price of the car:- "+price+"Lakh");
+       
+    }
+}
+class Car2 
+{
+    int weight;
+    public Car2(int weight)
+    {
+        
+        this.weight=weight;
+    }
+    public void purchased()
+    {
+       System.out.println("Weight of the car is:-"+weight+"Kgs");
+    }
+}
+class Car3 extends Car2,Car
+{
+    double speed;
+    public Car3(String color , double price,double speed,int weight)
+    {
+        super(color,price,weight);
+        this.speed=speed;
+    }
+    public void purchased()
+    {
+       super.purchased();
+       System.out.println("speed of the car is:-"+speed+"Km/h");
+       System.out.println("successfully purchased");
+    }
+    
+}
+public class Main{
+    public static void main(String[] args)
+
+        
+        Car3 c2=new Car3("green",33.4,60.6,87);
+        c2.purchased();
+        
+}
+    
+}
+
+
+Encapsulation
+-------------------------------
+
+Encapsulation is a process of wrapping code and data together into a single unit
+We can create a fully encapsulated class in Java by making all the data members of the class private. Now we can use setter and getter methods to set and get the data in it. 
+
+By providing only a setter or getter method, you can make the class read-only or write-only.
+It provides you the control over the data. Suppose you want to set the value of id which should be greater than 100 only, you can write the logic inside the setter method.
+It is a way to achieve data hiding in Java because other class will not be able to access the data through the private data members.
+
+ex;
+------------
+
+class Car
+{
+    private int speed;
+    private double price;
+    private int weight;
+    
+    public void setspeed(int speed)
+    {
+        this.speed=speed;
+        
+    }
+     public void setprice(double price)
+    {
+        this.price=price;
+        
+    }
+     public void setweight(int weigth)
+    {
+        this.weight=weight;
+        
+    }
+    public int getspeed()
+    {
+        return speed;
+    }
+    public double getprice()
+    {
+        return price;
+    }
+    public int getweight()
+    {
+        return weight;
+    }
+}
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Car c1=new Car();
+        c1.setspeed(30);
+        c1.setweight(79);
+        c1.setprice(44.4);
+        System.out.println("Car price is:-"+c1.getprice()+"Lakh");
+        System.out.println("Car weight is:-"+c1.getweight()+"Kgs");
+        System.out.println("Car speed is :-"+c1.getspeed()+"Km/h");
+        System.out.println("successfully purchased");
+    }
+}
+
+Without encapsulation;
+--------------------------------
+class Car
+{
+    int speed;
+    double price;
+    int weight;
+}
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Car c1=new Car();
+        c1.speed=55;
+        c1.price=45.6;
+        c1.weight=98;
+        System.out.println("Car price is:-"+c1.price+"Lakh");
+        System.out.println("Car weight is:-"+c1.weight+"Kgs");
+        System.out.println("Car speed is :-"+c1.speed+"Km/h");
+        System.out.println("successfully purchased");
+    }
+}
+
+Polymorphism
+--------------------------------------------------------
+
+
+

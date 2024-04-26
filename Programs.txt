@@ -1,0 +1,59 @@
+This keyword
+------------------
+This is a reference variable that refers to the current object.
+before using this keyword:
+---------------------------------------
+class beforeThis
+{
+String name;
+int age;
+public beforeThis(String name,int age)
+{
+name=name;
+age=age;
+
+}
+public void display()
+{
+System.out.println(name);
+System.out.println(age);
+}
+public static void main(String[] args)
+{
+beforeThis bt=new beforeThis("hero",21);
+bt.display();
+}
+}
+
+-----------------
+o/p
+null
+0
+After using This key word
+-------------------------------------------------------
+class beforeThis
+{
+String name;
+int age;
+public beforeThis(String name,int age)
+{
+this.name=name;
+this.age=age;
+}
+public void display()
+{
+System.out.println(name);
+System.out.println(age);
+}
+public static void main(String[] args)
+{
+beforeThis bt=new beforeThis("hero",21);
+bt.display();
+}
+}
+
+o/p
+------------------
+hero
+21
+-------------------
